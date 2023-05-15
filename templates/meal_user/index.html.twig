@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/usermeal.css') }}" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
+
+{% block title %}Meal index{% endblock %}
+
+{% block body %}
+{% include "components/navbar.html" %}
+
+   
+
+    <div class="container my-4">
+    <h1 class="my-5 text-center myhead">Check the Recipes ....</h1 >
+    <a class="mybtn" href="{{ path('app_meal_user_new') }}">Create new meal</a>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+  
+        {% for meal in meals %}
+   
+        <div class="col">
+          <div class="card h-100">
+            <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}"><img src="../../uploads/{{ meal.picture }}" class="card-img-top img-fluid" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">{{ meal.name }}</h5>
+              <p class="card-text">{{ meal.preparation }} <a href="{{ path('app_meal_user_show', {'id': meal.id}) }}">show more ...</a>.</p>
+               </div>
+            {# <div class="card-footer">
+              <small class="text-muted"><td><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</td></small>
+              
+            </div> #}
+              <ul class="list-group">
+    <li class="list-group-item list-group-item-success"><img src="https://img.icons8.com/dotty/80/null/time.png"/>{{ meal.cookingTime }} Min</li>
+    <li class="list-group-item list-group-item-danger"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/>{{ meal.calories }} Cal.</li>
+  </ul>
+          </div>       
+        </div>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+          </div>       <br>
+          </div>       
+
+    
+
+{% include "components/footer.html" %}
+    
+{% endblock %}

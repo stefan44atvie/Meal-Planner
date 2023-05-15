@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+.custom {
+  /* height: 80px; */
+  background: linear-gradient(to right, rgba(108, 175, 91, 255), #b4d4b0)
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-profile span {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.logout-button {
+  border: none;
+  background-color: #c0392b;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #e74c3c;
+}
+
+#logo {
+  margin-top: -10px;
+  height: 5rem;
+  filter: drop-shadow(3px 3px 1px black) !important;
+
+}
+
+.navlogo {
+  padding-bottom: 0 !important;
+}
+
+.logoo {
+  color: #eff0e8 !important;
+  font-size: 1.5rem !important;
+  filter: drop-shadow(3px 3px 1px #69C20E);
+}
+
+.nav-name {
+  font-size: 1.2rem !important;
+  padding-right: 1rem;
+  list-style-type: none;
+}
+
+.nav-name-link {
+  text-decoration: none !important;
+  color: #EFF0E8;
+}
+
+.nav-name-link:hover {
+  color: #EFF0E8;
+}
+
+.login-name {
+  display: flex;
+  align-items: center;
+}
+
+.home-image {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.logoutinfo {
+  display: flex;
+  align-items: center;
+}
+
+li a:hover {
+  color: red;
+}
+
+
+@media screen and (max-width: 992px) {
+  .login-name {
+    margin-left: -16px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+  }
+
+  .home-image {
+    margin-left: -1.7rem;
+    margin-top: 0.4rem;
+  }
+
+  .dropbtn {
+    margin-left: 1rem;
+  }
+
+  .logoutinfo img {
+    margin-left: .3rem;
+  }
+
+  li a span {
+    display: none;
+  }
+}
+
+
+.dropbtn11 {
+  background-color: #0bc480;
+  color: white;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  text-decoration: none;
+  margin-right: 2rem;
+  border-radius: 10px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #0bc480;
+}
+
+/* ----------------------------------- nav ------------------------------- */
+.logoo:hover {
+  color: #62f9c1 !important;
+}

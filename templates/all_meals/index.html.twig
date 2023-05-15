@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdn.jsdelivr.net/npmwiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
+        <link href="{{ asset('css/usermeal.css') }}" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
+
+{% block body %}
+        {% include "components/navbar.html" %}
+
+    <h1 class = "d-flex align-items-center justify-content-center" style="font-size: 5rem; margin-top: 1rem;">All Meals</h1>
+    <p class = "d-flex align-items-center justify-content-center" style="color: white; font-size: 1.2rem;"> Find here all existing recipes on this page, sorted by category </p>
+  
+    <!-- Browse Categories -->
+        <ul class="nav nav-pills mb-3 d-flex align-items-center justify-content-center" id="ex1" role="tablist">
+            <li class="nav-item" >
+            <a
+                class="nav-link link-success"
+                id="ex1-tab-1"
+                data-mdb-toggle="pill"
+                href="/all/meals"
+                role="tab"
+                aria-controls="ex1-pills-1"
+                aria-selected="true">
+                
+                All Meals</a>
+            </li>
+            <li class="nav-item">
+            <a
+                class="nav-link link-success"
+                id="ex1-tab-2"
+                data-mdb-toggle="pill"
+                href="/all/meals/meat"
+                role="tab"
+                aria-controls="ex1-pills-2"
+                aria-selected="false">
+                Meat</a>
+            </li>
+            <li class="nav-item ">
+            <a
+                class="nav-link link-success"
+                id="ex1-tab-3"
+                data-mdb-toggle="pill"
+                href="/all/meals/healthy"
+                role="tab"
+                aria-controls="ex1-pills-3"
+                aria-selected="false">
+                Healthy</a>
+            </li>
+            <li class="nav-item" >
+                <a
+                class="nav-link link-success"
+                id="vegetarian"
+                data-mdb-toggle="pill"
+                href="/all/meals/vegan"
+                role="tab"
+                aria-controls="vegetarian"
+                aria-selected="false">
+                Vegan</a>
+
+            </li>
+            <li class="nav-item" >
+                <a
+                class="nav-link link-success"
+                id="ex1-tab-4"
+                data-mdb-toggle="pill"
+                href="/all/meals/veggie"
+                role="tab"
+                aria-controls="ex1-pills-4"
+                aria-selected="false"
+                >Veggie</a>
+            </li>
+        </ul>
+  <!-- Pills navs -->
+  
+  <!-- Pills content -->
+  <div class="tab-content" id="ex1-content">
+    <div
+      class="tab-pane fade show active"
+      id="ex1-pills-1"
+      role="tabpanel"
+      aria-labelledby="ex1-tab-1">
+      {# ALL MEALS  #}
+
+           <div class="row" style="margin: 0;">
+                    {% for meal in meals %}
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 mb-4">
+                        <div class="card mycard" style="height: 28rem; width:400px; margin: 0 auto">
+                            <img height="260px" src="{{asset('uploads/' ~ meal.picture)}}" alt="{{meal.name}}">              
+                            <div class="card-body">
+                                <h5 class="card-title text-center"> {{meal.name}}</h5>
+                                <p class="card-text text-center">
+                                    {{meal.rating}}/5 (rated by User)
+                                </p>
+                                <p class="text-center">
+                                <a class="dropbtn text-center" href="{{ path('app_meal_detail', {'id': meal.id}) }}">Details</a>
+                                </p> 
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                       <div class="container-fluid errorcont">
+                            <p class="text-center text-danger"><img src="https://img.icons8.com/flat-round/300/null/cancel--v3.png"/></p>
+                            <p class="text-center text-danger" style="font-size:1.7cm">No Meals found</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+
+
+            </div>
+            {# ALL MEALS END  #}
+
+    </div>
+    <div class="tab-pane fade show" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+    </div>
+    </div>
+    
+
+
+    
+        
+    {% include "components/footer.html" %}    
+
+
+{% endblock %}
+{% block js %}
+        <script src='{{asset("js/home/script.js")}}'></script>
+        <script src='{{asset("js/nav.js")}}'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+        <script src="JS.js"></script>
+{% endblock %}

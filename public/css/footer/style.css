@@ -1,0 +1,88 @@
+.footer{
+    color:#090909;
+  }
+  
+  .list-style{
+    list-style-type:none!important;
+    cursor:pointer;
+    font-size:.75rem;
+    opacity:.8;
+  }
+  .copy-right{
+    font-size:.75rem;
+    opacity:.8;
+  }
+  .Analyst {
+    width: 87.7px;
+    height: 23.7px;
+    margin: 10.7px 0 5.2px 10.2px;
+    color: #fff;
+  }
+
+  /* ------------------------ icons ------------------ */
+
+  .btnn {
+    color: #f1243f;
+    cursor: pointer;
+    font-size:20px;
+    font-weight: 300;
+    line-height: 45px;
+    width: 45px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 50%;
+    width: 13%;
+    text-align: center; 
+}
+
+.facebook {
+  color: blue;
+}
+
+.linkedin {
+  color: #0072b1;
+}
+
+.twitter {
+  color: #1DA1F2;
+}
+
+.btn-2{
+    transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px 0px #062f2f;
+}
+.facebook:hover{
+    background-color: blue;
+    border: none;
+    box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+    color: white;
+}
+
+.instagramm:hover{
+  background-color: #f1243f;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+.linkedin:hover{
+  background-color: #0072b1;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+.twitter:hover{
+  background-color: #1DA1F2;
+  border: none;
+  box-shadow: 0px 0px 1px -4px #fff inset , 0px 0px 11px 1px #4a9a9a46 ;
+  color: white;
+}
+
+
+
+
+

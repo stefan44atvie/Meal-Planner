@@ -1,0 +1,88 @@
+    {% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+{% block stylesheets %}
+<link href="{{ asset('css/showmealadmin.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block body %}
+
+    <div class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+         <h1 class="text-center" style="color: #4d4f64; font-family: 'Fredericka the Great', cursive; font-weight: 400; font-size: 1.8cm;">User Profile</h1>
+         <div class="card mb-10" style="max-width: 1000px;">
+        <div class="row g-0">
+            <div class="col-md-6">
+            <img src="{{ asset('/uploads/' ~ user.image) }}" class="img-fluid rounded-start w-100 h-100 rounded-pill" alt="...">
+            </div>
+            <div class="col-md-4">
+            <div class="card-body mt-3">
+                <h5 class="card-title">Full Name: {{ user.fname }} {{ user.lname }}</h5>
+                <p class="card-text">Email: {{ user.email }}</p>
+                <p class="card-text">Date_of_birth: {{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : '' }}</p>
+                <p class="card-text">Phone: {{ user.phone }}</p>
+                <p class="card-text">Gender: {{ user.gender }}</p>
+
+
+                <a class="btn btn-warning rounded-4" href="{{ path('app_user_edit', {'id': user.id}) }}"><img src="https://img.icons8.com/ios-filled/25/null/edit--v1.png">Edit</a><br><br> 
+                <a class="btn btn-primary rounded-4" href="{{ path('app_user_index') }}"><img src="https://img.icons8.com/sf-regular-filled/50/null/circled-left--v2.png"/>Back to Users</a>
+
+
+            </div>
+            </div>
+        </div>
+        </div>
+     </div>
+    {# <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Fname</th>
+                <td>{{ user.fname }}</td>
+            </tr>
+            <tr>
+                <th>Lname</th>
+                <td>{{ user.lname }}</td>
+            </tr>
+            <tr>
+                <th>Date_of_birth</th>
+                <td>{{ user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ user.gender }}</td>
+            </tr>
+            <tr>
+                <th>Blocked</th>
+                <td>{{ user.blocked ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ user.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_index') }}">back to list</a>
+
+    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a> #}
+{% endblock %}

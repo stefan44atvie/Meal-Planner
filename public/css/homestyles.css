@@ -1,0 +1,36 @@
+body, html {
+  height: 90%;
+}
+.parallax {
+  background-image: url("../pictures/home.png");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+ 
+}
+#p1{
+  height: 800px;
+
+  background: linear-gradient(0deg, rgba(240,234,228,0.2) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
+
+}
+
+.parallax1 {
+  background-image: url("../pictures/homepic.jpg");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+
+#p2{
+  height: 800px;
+  background: rgb(240,234,228);
+  background: linear-gradient(0deg, rgba(240,234,228,1) 0%, rgba(221,241,202,0.3768907221091562) 0%, rgba(197,228,228,0) 100%);
+
+}

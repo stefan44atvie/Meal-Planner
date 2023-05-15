@@ -1,0 +1,70 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary custom">
+  <div class="container-fluid">
+    <a class="navbar-brand logoo navlogo" href="/"><img id="logo" src="../../pictures/logo-white.png" alt=""
+        style="size: 2rem;"> <span style="font-size: 1.7rem;">Healthymeal</span> </a>
+    <button class="navbar-dark navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active logoo" aria-current="page" href="/">Home <span>|</span></a>
+        </li>
+        <li class="nav-item">
+
+          <a class="nav-link logoo" href="/all/meals">Meals <span>|</span></a>
+        </li>
+        {# <li class="nav-item">
+
+          <a class="nav-link logoo" href="/week/">Planner <span>|</span></a>
+        </li> #}
+        <li class="nav-item">
+
+          {% if is_granted('ROLE_ADMIN') %}
+          <a class="nav-link logoo" href="/admin/meal">Admin <span>|</span></a>
+          {% elseif is_granted('ROLE_USER') %}
+        <li><a class="nav-link logoo" href="/week/">Planner <span>|</span></a></li>
+        <a class="nav-link logoo" href="/user/meal/">My Recipes</a>
+        {% else %}
+
+        {% endif %}
+        </li>
+      </ul>
+
+      <div class="d-flex">
+        <div class="user-profile">
+          <!-- <img src="https://cdn.pixabay.com/photo/2023/04/05/21/09/bird-7902319_960_720.jpg" alt="Profile Pic">
+              <span>hey, username!</span>
+            </div> -->
+          <!--<button class="logout-button"><a href="/login">Login</a></button></div> -->
+          {% if app.user %}
+          <div class="login-name navbar-brand">
+            <img src="{{ asset('/uploads/' ~ app.user.image) }}" class="home-image">
+            <div class="dropdown">
+              <button type="button" class="dropbtn11 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                aria-haspopup="true">{{app.user.fname ~ " " ~ app.user.lname}}</button>
+              <div class="dropdown-menu dropdown-content" style="margin-right: 4px !important">
+                <a href="{{ path('app_editself_index', {'id': app.user.id}) }}">My Profile</a>
+                <a href="{{ path('app_logout') }}">Logout</a>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="logoutinfo">
+            <img src="{{ asset('/pictures/user.png')}}" class="home-image">
+            <a class="nav-link logoo" href="/login">Login</a>
+          </div>
+          {% endif %}
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Navbar -->

@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdn.jsdelivr.net/npmwiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/home/homestyles.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block body %}
+        {% include "components/navbar.html" %}
+        
+        {# <div id="hero" class="container-fluid">
+        
+        <img src="../../pictures/Hero.png"  class="m-0 p-0 w-100"  alt="Responsive image">
+              
+        <div id="hero-btn">
+                <h2> Meal | Plan</h2> <br>
+                
+        </div>
+        </div> #}
+
+        {# <hero section> #}
+        <div class="hero-section" >
+         <div class="hero-content">
+         <img src="../../pictures/hero.jpg" alt="Hero-image" width="100%" >
+          
+         </div>
+        </div>
+        {# <end of hero section> #}
+
+
+        <br>
+        {# <whyhealthymeal section> #}
+        <h2 class="text-center titleHM">Why Healthy meal?</h2>
+
+        
+        <div class="container mt-3 text-center">
+         <p class="HMtext">Welcome to HealthyMeal, we believe that healthy eating is a lifestyle, and our website is designed to make that lifestyle accessible and enjoyable for everyone. By using our website, you can plan your meals for the week, create customized recipes, and track your progress towards your health goals.</p>
+
+        <p class="HMtext">Our website is perfect for anyone who wants to take control of their health and wellbeing, whether you're a busy professional, a parent, or just someone who wants to eat better. With HealthyMeal, you can create meals that are tailored to your tastes and dietary needs, so you can feel confident that you're nourishing your body with the right nutrients.</p>
+        </div>
+        {# < end whyhealthymeal section> #}
+<br>
+<br>
+        {# <how it works section> #}
+                <h2 class="text-center titleHM">How it Works</h2>
+
+        <div class="container mt-5">
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+                <br>
+               
+                        <h1 style="color:#69C20E">Browse</h1>
+                        <h1> Healthy Recipes</h1> 
+                        <p class="HMtext" >We've got hundreds of delicious recipes for every taste and dietary preference. Browse them all using our Search and Filter tools and choose the ones that are right for you.</p>
+                        <img  src="../../pictures/file.png" class="img-fluid rounded-circle" alt="Responsive image">
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
+                        <img  src="../../pictures/meal1.png" class="img-fluid rounded-circle" alt="Responsive image">
+                </div>
+                		<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 ">
+                <br>
+               
+                        <h1 style="color:#69C20E">Create</h1>
+                        <h1> a Meal Plan</h1> 
+                        <p class="HMtext" >Use our Meal Planning website to add recipes to your weekly meal plan. It's so simple and light to use. You can add as many recipes as you want and keep track of your daily calorie intake.
+
+</p>
+                        <img  src="../../pictures/file.png" class="img-fluid rounded-circle" alt="Responsive image">
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 ">
+                        <img  src="../../pictures/p1.jpg" class="img-fluid rounded-circle" alt="Responsive image">
+                </div>
+	</div>
+        </div>
+        <div>
+        <h1 class="goals">``Achieve your goal´´<h1>
+        <img  src="../../pictures/meals-week.jpg" width="100%" alt="Responsive image">
+        </div>
+        
+        
+        {# <end how it works section> #}
+{# <recipe of the month section> #}
+
+{# <h1 class="titleHM">HERE IT WILL BE THE RECIPE OF THE MONTH</h1> #}
+
+{# < end recipe of the month section>  #}
+
+       
+             {% include "components/footer.html" %}    
+        </div>
+{% endblock %}
+
+{% block js %}
+        <script src='{{asset("js/home/script.js")}}'></script>
+        <script src='{{asset("js/nav.js")}}'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+        integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+        <script src="JS.js"></script>
+{% endblock %}
+
+

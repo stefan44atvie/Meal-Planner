@@ -1,0 +1,29 @@
+body {
+    background-image: url(../pictures/login-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.headline {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 2cm;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+
+.weekdays {
+    width: 7rem!important;
+    background-color: #69C20E !important;
+}
+
+.btn-primary{
+    margin: 10px;
+    padding: 10px;
+}
+/* 
+.container>.row>.col-1>button {
+    width: 7rem;
+} */

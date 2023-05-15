@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/userself.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container mycont">
+        <div class="info">
+            <div class="image-cont half">
+                {% for user in users %}
+                <img height="130px" width="215px"  src="{{asset("uploads/" ~ user.image)}}" alt="...">
+                {% endfor %}
+                
+            </div>
+            <div class="info-cont half">
+                {% for user in users %}
+                <div class="first">
+                    <h4> {{user.fname ~ " " ~ user.lname}} </h4>
+                    <a class="btn btn-success mybtn2" href="{{ path('app_editself_edit', {'id': user.id}) }}">Edit</a>
+                </div>
+                <div>
+                    <p>Date of Birth: {{user.dateOfBirth ? user.dateOfBirth|date('Y-m-d') : ''}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender: {{ user.gender }} </p>
+                    <hr>
+                    <p><i class="fa-solid fa-phone"></i> &nbsp;&nbsp; {{ user.phone}}</p>
+                    <p><i class="fa-solid fa-envelope"></i> &nbsp;&nbsp; {{ user.email}}</p>
+                    <button onclick="deleteswal('{{user.id}}')" class="btn btn-danger mybtn2">Delete</button>
+                    <a class="btn btn-success mybtn2" href="{{ path('app_home', {'id': user.id}) }}"> Back to Home</a>
+                    <a class="btn btn-success mybtn2" href="{{ path('app_editself_change_password') }}">Change Password</a>
+
+
+                </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src='{{asset("js/deleteYourProfile.js")}}'></script>
+{% endblock %}

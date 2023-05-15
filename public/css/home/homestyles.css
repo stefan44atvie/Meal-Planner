@@ -1,0 +1,76 @@
+#hero {
+  position: relative;
+  align-items: center;
+  text-align: center;
+}
+
+#hero-btn {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+
+.btnss {
+  background-image: linear-gradient(173.04deg, #5ebd21 50.82%, #48d16e 84.97%) !important;
+  background-color: #5ebd21;
+  height: 50px;
+  text-align: center;
+}
+
+.titleHM {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2cm;
+  color: #69C20E;
+}
+
+.HMtext {
+  font-family: 'Lato', sans-serif;
+  font-size: x-large;
+  color: #727272;
+}
+
+.goals {
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2cm;
+  color: #69C20E;
+}
+
+/* .hero-section {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../pictures/hero.jpg);
+
+} */
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+}
+
+.hero-content button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-content button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+.btn-meal-planning {
+  vertical-align: middle;
+}

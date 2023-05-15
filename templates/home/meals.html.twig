@@ -1,0 +1,221 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/home/homestyles.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block body %}
+        {% include "components/navbar.html" %}
+
+    <h1>All Meals</h1>
+<p> Find here all existing recipes on this page </p>
+{# categories #}
+
+{# Collapsing categories  #}
+<p>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#meat" role="button" aria-expanded="false" aria-controls="meat">Meat</a>
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#vegan" role="button" aria-expanded="false" aria-controls="vegan">vegan</a>
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#vegetarian" aria-expanded="false" aria-controls="vegetarian">Vegetarian</button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#vegan" aria-expanded="false" aria-controls="vegan">Vegan</button>
+
+</p>
+<div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="meat">
+        <div class="card card-body">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for Meat in catMeat %}
+                    <div class="col">
+                        <div class="card col-sm-5">
+                            <img src="{{Meat.picture}}" alt="Girl in a jacket">              
+                            <div class="card-body">
+                            <h5 class="card-title text-center"> {{Meat.name}}</h5>
+                            <p class="card-text text-center">
+                                 {{Meat.rating}} stars (rated by users),
+                                <a class="card-text text-end caloriestext"> {{Meat.calories}} calories</a>
+                                
+                        </p>
+                          </div>
+                        </div>
+                      </div>
+                    {% else %}
+                        No meals found...
+                    {% endfor %}
+                    </div>
+                    </div>        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="collapse multi-collapse" id="vegan">
+          <div class="card card-body">
+            Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+    <div class="col">
+      <div class="collapse multi-collapse" id="vegetarian">
+        <div class="card card-body">
+          Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Pills navs -->
+<ul class="nav nav-pills mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active"
+        id="ex1-tab-1"
+        data-mdb-toggle="pill"
+        href="#ex1-pills-1"
+        role="tab"
+        aria-controls="ex1-pills-1"
+        aria-selected="true"
+        >Tab 1</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        id="ex1-tab-2"
+        data-mdb-toggle="pill"
+        href="#ex1-pills-2"
+        role="tab"
+        aria-controls="ex1-pills-2"
+        aria-selected="false"
+        >Tab 2</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        id="ex1-tab-3"
+        data-mdb-toggle="pill"
+        href="#ex1-pills-3"
+        role="tab"
+        aria-controls="ex1-pills-3"
+        aria-selected="false"
+        >Tab 3</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="vegetarian"
+          data-mdb-toggle="pill"
+          href="#vegetarian"
+          role="tab"
+          aria-controls="vegetarian"
+          aria-selected="false"
+          >Vegetarian</a
+        >
+      </li>
+  </ul>
+  <!-- Pills navs -->
+  
+  <!-- Pills content -->
+  <div class="tab-content" id="ex1-content">
+    <div
+      class="tab-pane fade show active"
+      id="ex1-pills-1"
+      role="tabpanel"
+      aria-labelledby="ex1-tab-1">
+
+      {# ALL MEALS  #}
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for meal in meals %}
+                    <div class="col">
+                        <div class="card col-sm-5">
+                            <img src="{{meal.picture}}" alt="Girl in a jacket">              
+                            <div class="card-body">
+                            <h5 class="card-title text-center"> {{meal.name}}</h5>
+                            <p class="card-text text-center">
+                                {{meal.rating}} stars (rated by users),
+                                <a class="card-text text-end caloriestext"> {{meal.calories}} calories</a>
+                                
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        No meals found...
+                    {% endfor %}
+                </div>
+            </div>
+            {# ALL MEALS END  #}
+
+    </div>
+    <div class="tab-pane fade" id="ex1-pills-2" role="tabpanel" aria-labelledby="ex1-tab-2">
+      {# MEAT MEALS  #}
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for meat in catMeat %}
+                    <div class="col">
+                        <div class="card col-sm-5">
+                            <img src="{{meat.picture}}" alt="Girl in a jacket">              
+                            <div class="card-body">
+                            <h5 class="card-title text-center"> {{meat.name}}</h5>
+                            <p class="card-text text-center">
+                                {{meat.rating}} stars (rated by users),
+                                <a class="card-text text-end caloriestext"> {{meat.calories}} calories</a>
+                                
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        No meals found...
+                    {% endfor %}
+                </div>
+            </div>
+            {# Meat MEALS END  #}
+    </div>
+    <div class="tab-pane fade" id="ex1-pills-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+        {# Vegan MEALS  #}
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                {% for vegan in catVegan %}
+                <div class="col">
+                    <div class="card col-sm-5">
+                        <img src="{{vegan.picture}}" alt="Girl in a jacket">              
+                        <div class="card-body">
+                        <h5 class="card-title text-center"> {{vegan.name}}</h5>
+                        <p class="card-text text-center">
+                            {{vegan.rating}} stars (rated by users),
+                            <a class="card-text text-end caloriestext"> {{vegan.calories}} calories</a>
+                            
+                    </p>
+                    </div>
+                    </div>
+                </div>
+                {% else %}
+                    No meals found...
+                {% endfor %}
+            </div>
+        </div>
+        {# Vegan MEALS END  #}
+    </div>
+  </div>
+  <!-- Pills content -->
+
+
+    
+
+        
+ {# SHow all the categories  #}
+
+    
+        
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Meal{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/mealform.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+
+    <div class="container myform">
+        <h1><img src="../../pictures/chef.png" alt="chef"> Edit Meal</h1>
+        {{ include('meal/_form.html.twig') }}
+        <a class="btn btn-success mybtn" href="{{ path('app_meal_index') }}">Meals</a>
+    </div>
+
+
+{% endblock %}
+

@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/showusermeal.css') }}" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+
+{% block title %}Meal{% endblock %}
+
+{% block body %}
+        {% include "components/navbar.html" %}
+        <br>
+        <br>
+        <br>
+        <br>
+
+{# <div class="container mt-5 w-50">
+    <div class="d-flex">
+
+            <img class="img-user-details" src="{{ asset('/uploads/' ~ meal.picture) }}" style="width: 25rem">
+
+        
+        <div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ meal.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ meal.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Picture</th>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td>{{ meal.category }}</td>
+                    </tr>
+                    <tr>
+                        <th>Calories</th>
+                        <td>{{ meal.calories }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rating</th>
+                        <td>{{ meal.rating }}</td>
+                    </tr>
+                    <tr>
+                        <th>Preparation</th>
+                        <td>{{ meal.preparation }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cooking_time</th>
+                        <td>{{ meal.cookingTime }}</td>
+                    </tr>
+                    {% for ing in ingredient %}
+                    <tr>
+                        <th>Ingredients</th>
+                        <td>{{ ing }}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+                
+            </table>
+
+    <a href="{{ path('app_meal_user_edit', {'id': meal.id}) }}">edit</a>
+    </div>
+</div> #}
+<div class="container mt-4">
+
+    <h1 class="hline">Recipe Card</h1>
+    <div class="card mx-auto px-auto" >
+  <img src="../../uploads/{{ meal.picture }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ meal.name }}</h5>
+    <p class="card-text HMtext">{{ meal.preparation }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><img src="https://img.icons8.com/ios/40/null/category.png"/> <span class="bold-headers">Category:</span>{{ meal.category }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/40/null/external-calories-fitness-at-home-flaticons-lineal-color-flat-icons-2.png"/><span class="bold-headers">Calories:</span>{{ meal.calories }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/dotty/40/null/time.png"/><span class="bold-headers">Time:</span>{{ meal.cookingTime }}</li>
+    <li class="list-group-item"><img src="https://img.icons8.com/external-outline-berkahicon/40/null/external-ingredient-linely-baking-outline-berkahicon.png"/><span class="bold-headers"> Ingredients:</span>{% for ing in ingredient %}
+            
+                
+             <ul>
+  <li>{{ ing }}</li>
+</ul>  
+            
+            {% endfor %}</li>
+  </ul>
+  <div class="card-body">
+    <a class="btn btn-warning" href="{{ path('app_meal_user_edit', {'id': meal.id}) }}" class="card-link"><img src="https://img.icons8.com/ios-filled/25/null/edit--v1.png"/>Edit</a>
+    <button class="btn btn-danger" onclick="deleteswal('{{meal.id}}')"><img src="https://img.icons8.com/wired/25/null/filled-trash.png"/>Delete</button>
+  </div>
+</div>
+    <div class="container d-flex p-5"><a class="btn btn-success mx-auto" href="{{ path('app_meal_user_index') }}"><img src="https://img.icons8.com/sf-regular-filled/50/null/circled-left--v2.png"/> back to list</a> </div>
+
+        {% include "components/footer.html" %}
+
+{% endblock %}
+{% block js %}
+    <script src='{{asset("js/userpage.js")}}'></script>
+{% endblock %}

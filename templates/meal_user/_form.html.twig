@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<link href="{{ asset('css/newUserForm.css') }}" rel="stylesheet" type="text/css"/>
+    
+    <div>
+    <button class="btn mybtn">{{ button_label|default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Week index{% endblock %}
+{% block stylesheets %}
+<link href="{{ asset('css/weekindex.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+        {% include "components/navbar.html" %}
+    <h1 class="headline"><img src="https://img.icons8.com/windows/100/FFFFFF/weekend.png"/>The Weekly Plan</h1>
+
+
+<div class="container">
+  <div class="mb-4 d-flex justify-content-center flex-wrap">
+      <button class="btn btn-primary m-2 weekdays" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Monday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Tuesday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Wednesday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Thursday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Friday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Saturday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Sunday</button>
+      <button class="btn btn-primary m-2 weekdays" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 multiCollapseExample4 multiCollapseExample5  multiCollapseExample6  multiCollapseExample7">Show/Hide</button>
+  </div>
+  <div>
+
+
+      
+    <div class="row">
+
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample1">
+        {% if monday.name is defined %}
+        {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+        <div class="card mb-4" style="width: 100%;">
+            <img height="180px" src="{{asset("uploads/" ~ monday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/monday.png"/>monday</h5>
+              <h5 class="card-title text-center">{{monday.name}}</h5>
+              <div class="text-center">
+              <a href="{{ path('app_meal_detail', {'id': monday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
+            </div>
+          </div>
+        {# </div> #}
+        {% else %}
+            <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample2">
+        {% if tuesday.name is defined %}
+              {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+              <div class="card mb-4" style="width: 100%;">
+                  <img height="180px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+                  <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/tuesday.png"/>tuesday</h5>
+                    <h5 class="card-title text-center">{{tuesday.name}}</h5>
+                    <div class="text-center">
+                    <a href="{{ path('app_meal_detail', {'id': tuesday.id}) }}" class="btn btn-primary">See Details</a>
+
+                    </div>
+
+                  </div>
+                </div>
+              {# </div> #}
+              {% else %}
+            <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+              {% endif %}
+      </div>
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample3">
+        {% if wednesday.name is defined %}
+        {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+        <div class="card mb-4" style="width: 100%;">
+            <img height="180px" src="{{asset("uploads/" ~ wednesday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/wednesday.png"/>wednesday</h5>
+              <h5 class="card-title text-center">{{wednesday.name}}</h5>
+              <div class="text-center">
+              <a href="{{ path('app_meal_detail', {'id': wednesday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
+            </div>
+          </div>
+        {# </div> #}
+        {% else %}
+            <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample4">
+        {% if thursday.name is defined %}
+        {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+            <div class="card mb-4" style="width: 100%;">
+                <img height="180px" src="{{asset("uploads/" ~ thursday.picture)}}" class="card-img-top" alt="...">
+                <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/thursday.png"/>Thursday</h5>
+                <h5 class="card-title text-center">{{thursday.name}}</h5>
+                <div class="text-center">
+                <div class"text-center"><a href="{{ path('app_meal_detail', {'id': thursday.id}) }}" class="btn btn-primary">See Details</a></div>
+
+                </div>
+
+                </div>
+                </div>
+            
+        {# </div> #}
+        {% else %}
+      <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample5">
+        {% if friday.name is defined %}
+        {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+        <div class="card mb-4" style="width: 100%;">
+            <img height="180px" src="{{asset("uploads/" ~ friday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/friday.png"/>Friday</h5>
+
+              <h5 class="card-title text-center">{{friday.name}}</h5>
+              <div class="text-center">
+              <a href="{{ path('app_meal_detail', {'id': friday.id}) }}" class="btn btn-primary">See Details</a>
+
+              </div>
+
+            </div>
+          </div>
+        {# </div> #}
+        {% else %}
+            <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample6">
+        {% if saturday.name is defined %}
+                {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+                <div class="card mb-4" style="width: 100%;">
+                    <img height="180px" src="{{asset("uploads/" ~ saturday.picture)}}" class="card-img-top" alt="...">
+                    <div class="card-body" style="height: 200px;">
+                       <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/saturday.png"/>Saturday</h5>
+                      <h5 class="card-title text-center">{{saturday.name}}</h5>
+                      <div class="text-center">
+                      <a href="{{ path('app_meal_detail', {'id': saturday.id}) }}" class="btn btn-primary">See Details</a>
+                      </div>
+                    </div>
+                  </div>
+                {# </div> #}
+                {% else %}
+              <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+                {% endif %}
+      </div>
+
+
+  
+      <div class="collapse multi-collapse col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12" id="multiCollapseExample7">
+        {% if sunday.name is defined %}
+        {# <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12"> #}
+        <div class="card mb-4" style="width: 100%;">
+            <img width="288px" src="{{asset("uploads/" ~ tuesday.picture)}}" class="card-img-top" alt="...">
+            <div class="card-body" style="height: 200px;">
+              <h5 class="card-title text-center dayname"><img src="https://img.icons8.com/office/30/null/sunday.png"/>Sunday</h5>
+              <h5 class="card-title text-center">{{tuesday.name}}</h5>
+
+              <div class="text-center">
+              <a href="{{ path('app_meal_detail', {'id': sunday.id}) }}" class="btn btn-primary text-center">See Details</a>
+              </div>
+
+            </div>
+          </div>
+        {# </div> #}
+        {% else %}
+      <div class="card card-body" style="height: 200px;">no meal added yet, check the recipe and fill your program</div>
+        {% endif %}
+      </div>
+
+  </div>
+  </div>
+</div>
+
+</div>        
+{% endblock %}

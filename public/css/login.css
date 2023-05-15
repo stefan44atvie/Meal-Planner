@@ -1,0 +1,128 @@
+/* body{background-color: blue;} */
+/* Style the form container */
+body {
+  background-image: url(../../pictures/login-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+form {
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Style the left part of the form */
+.form-left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.form-left img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-left h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* Style the right part of the form */
+.form-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the form inputs */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style the form submit button */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  background-color: #69C20E;
+  color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Add hover effect to the submit button */
+button[type="submit"]:hover {
+  background-color: #494E30;
+}
+
+/* @media screen and (max-width: 600px) {
+  .form-right {
+    margin-top: 3rem !important;
+  }
+
+  form {
+    width: 60rem;
+  }
+
+  .form-left {
+    width: 80%;
+  }
+}
+ */
+
+
+@media screen and (max-width: 991px) {
+  .form-right {
+    margin-top: 3rem !important;
+  }
+
+  form {
+    width: 25rem;
+  }
+
+  .form-left {
+    width: 75%;
+  }
+}

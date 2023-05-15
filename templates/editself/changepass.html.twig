@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('css/newUserForm.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5 myform   " style="border-radius: 12px;"> 
+    <h1>Edit User</h1>
+    {{ include('editself/_passwordform.html.twig', {'button_label': 'Update'}) }}
+    <a class=" btn mybtn" href="{{ path('app_editself_index', {'id': user.id}) }}">Your Profile</a>
+</div>
+
+
+{% endblock %}

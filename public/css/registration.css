@@ -1,0 +1,17 @@
+
+
+body{
+  background-image: url(../../pictures/login-bg.png); background-repeat: no-repeat; background-size: cover;
+  min-height: 100vh;
+}
+
+.form {
+    width: 40% !important;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}

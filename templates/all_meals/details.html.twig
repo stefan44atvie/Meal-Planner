@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <link href="{{ asset('css/mealstyles.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block body %}
+        {% include "components/navbar.html" %}
+
+    <h1 class="text-center mt-3">{{meal.name}} Recipe</h1>
+
+
+    <div class="container d-flex justify-content-center">
+        <div class="card" style="width: 45rem; margin-bottom: 1rem;">
+            <img src="/uploads/{{meal.picture}}" class="card-img-top w-100 h-75" alt="..">
+            <div class="card-body">
+            <h5 class="card-header text-center"><small class="text-muted">{{meal.name}}</small></h5>
+            <p class="card-text">
+                <table class="w-100">
+                        <tr>
+                            <td>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <b>Category</b>: {{meal.category}}
+                                    </div>
+                                    <div>
+                                        <b>Calories</b>: {{meal.calories}} calories
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <b>User Rating</b>: {{meal.rating}}
+                                    </div>
+                                    <div>
+                                        <b> Cooking time</b>: {{meal.cookingtime}} minutes
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <b>Ingredients</b>:
+                                        {% if meal.ingredients %}
+                                        <ul>
+                                        {% for ing in ingredients %}
+                                            <li>{{ing}}</li>
+                                        {% endfor %}
+                                        </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        {{meal.preparation}}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                <a class="dropbtn text-center" style="text-decoration: none;" href="/all/meals">Back to all meals</a>
+                                <div class="dropup">
+                                    <button type="button" class="dropbtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Add to the plan</button>
+                                    <div class="dropdown-menu dropdown-content">
+                                      <a href="/week/{{meal.id}}&1">Monday</a>
+                                      <a href="/week/{{meal.id}}&2">Tuesday</a>
+                                      <a href="/week/{{meal.id}}&3">Wednesday</a>
+                                      <a href="/week/{{meal.id}}&4">Thursday</a>
+                                      <a href="/week/{{meal.id}}&5">Friday</a>
+                                      <a href="/week/{{meal.id}}&6">Saturday</a>
+                                      <a href="/week/{{meal.id}}&7">Sunday</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <br>
+                                <br>
+                                <i class="text-success">Have fun with our recipes and enjoy your favorite meal!</i>
+                            </td>
+                        </tr>
+                    </table>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

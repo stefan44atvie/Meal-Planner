@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<link href="{{ asset('css/registration.css') }}" rel="stylesheet" type="text/css"/>
+
+    
+    <div class="container w-50  form">
+    <div>
+    <h2 class="text-center">Register</h2>
+    </div>
+        
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.fname) }}
+        {{ form_row(registrationForm.lname) }}
+        {{ form_row(registrationForm.date_of_birth) }}
+        {{ form_row(registrationForm.phone) }}
+        {{ form_row(registrationForm.gender) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword,
+         {label: 'Password' }) }}
+        {{ form_row(registrationForm.blocked) }}
+        {{ form_row(registrationForm.image) }}
+        {# {{ form_row(registrationForm.agreeTerms) }}   #}
+
+        <div class="text-center"><button type="submit" class="btn btn-primary" style="background-image: linear-gradient(173.04deg,#5EBD21 50.82%,#48D16E 84.97%)!important;">Register</button></div>
+    {{ form_end(registrationForm) }}
+    </div>
+    
+{% endblock %}

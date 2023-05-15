@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meal index{% endblock %}
+
+{% block stylesheets %}
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+
+    <div id="head">
+        <div class="cont">
+            <div id="heading">
+            <h1>Dashboard</h1>
+            </div>
+            <div id="button">
+            <button class="activatenav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <img width="40px" src="https://logodix.com/logo/1707088.png" alt="">
+            </button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="navbar">        
+        <div style="width:250px;" class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+            <h5 class="offcanvas-title navheading" id="offcanvasExampleLabel">Admin Panel</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+            <div>
+                <div id="imagecont">
+                <img id="admpic" src="{{asset("uploads/" ~ user.image)}}" alt="">
+                </div>
+                <div id="textcont">
+                <h5> {{user.fname ~ " " ~ user.lname}} (Admin)</h5>
+                <p> {{user.email}}</p>
+                <a style="color: black;" href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            </div>
+            <div class="navlinks">
+                <a href="/"> <i class="fa-solid fa-home fa-2x"></i>Home</a>
+                <a href="/admin/meal"><i class="fa fa-hamburger fa-2x" aria-hidden="true"></i> Foods</a>
+                <a href="/admin/user"> <i class="fa fa-users fa-2x" aria-hidden="true"></i> Users</a>
+                <a href="/admin/meal/approve"> <i class="fa fa-ban fa-2x" aria-hidden="true"></i> Not approved <span style="color: red; vertical-align:super;">{{count}}</span></a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container infotable">
+        <div id="firstline">
+            <div>
+                <h2 id="flinehead">
+                    Not approved
+                </h2>
+            </div>            
+        </div>
+        <table class="table">
+            <thead>
+                <tr class="table-secondary">
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for meal in meals %}
+                <tr>
+                    <td class="tablevertical tableentry"><img height="130px" width="215px"  src="{{asset("uploads/" ~ meal.picture)}}" alt="..."></td>
+                    <td class="tablevertical tableentry">{{ meal.name }}</td>
+                    <td class="tablevertical tableentry">{{ meal.category }}</td>
+                    <td class="tablevertical tableentry">
+                        <a class="btn btn-success mybtn mb-3 mb-md-0" href="{{ path('app_meal_approve_one', {'id': meal.id}) }}">Approve</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+   
+{% endblock %}
